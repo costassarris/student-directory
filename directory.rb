@@ -7,14 +7,17 @@ def input_students
 	students = []
 	#get the first name
 	name = gets.chomp
-	cob = ''
 	#while the name is not empty, repeat this code
 	while !name.empty? do
+		puts "Cohort? (leave empty if February)"
+		cohort = gets.chomp
+		if cohort.empty? then cohort = "February"
+		end
 		#ask user for students country of birth
 		puts "Country of birth?".center(60)
 		cob = gets.chomp
 		#add the student hash to the array
-		students << {:name => name, :cohort => :February, :cob => cob}
+		students << {:name => name, :cohort => cohort, :cob => cob}
 		puts "Now we have #{students.length} students".center(60)
 		#get another name from the user
 		name = gets.chomp
